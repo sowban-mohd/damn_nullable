@@ -4,7 +4,7 @@ description: >
   between "no update" and "update to null". Use DamnNullable<T> to explicitly set 
   nullable fields inside copyWith. Works with any Dart model.
 
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/sowban-mohd/damn_nullable
 repository: https://github.com/sowban-mohd/damn_nullable
 issue_tracker: https://github.com/sowban-mohd/damn_nullable/issues
