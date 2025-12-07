@@ -47,12 +47,27 @@ class User {
     DamnNullable<int>? age,
   }) {
     return User(
-      name: name?.or(this.name) ?? this.name,
-      age: age?.or(this.age) ?? this.age,
+      name: name.or(this.name),
+      age: age.or(this.age),
     );
   }
 }
 ```
+
+---
+
+# How `.or()` works
+
+Inside `copyWith`, this expression:
+
+```dart
+name.or(this.name)
+```
+
+means:
+
+* If a `DamnNullable` was **passed**, return the wrapped value
+* If the parameter was **not passed**, return the fallback (existing value)
 
 ---
 
@@ -75,21 +90,6 @@ user.copyWith(name: DamnNullable(null));
 ```dart
 user.copyWith();
 ```
-
----
-
-# How `.or()` works
-
-Inside `copyWith`, this expression:
-
-```dart
-name?.or(this.name)
-```
-
-means:
-
-* If a `DamnNullable` was **passed**, return the wrapped value
-* If the parameter was **not passed**, return the fallback (existing value)
 
 So:
 
